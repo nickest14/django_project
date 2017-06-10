@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block script %}
+<script>
+$(document).ready(function(){
+  loadTweetContainer("tweet-container", {{ object.id }})
+});
+</script>
+{% endblock script %}
+
+{% block content %}
+
+<div class='row' style='background-color: #ffff9a;'>
+    <div class='col-sm-3 col-xs-12' style='padding-top:30px; text-align: center;'>
+        <h1 style=''>Publisher: </h1>
+        <h1 style="">  {{ object.user }} </h1>
+    </div>
+    <!-- col-sm-offset-1  要偏移的話使用這個-->
+    <div class='col-sm-7 col-xs-12' style="background-color: #99ccff; padding-top:50px;">
+        <h1 style='padding:5px;'> Detail of this tweet </h1><br>
+        <div id='tweet-container'>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+
+
+<div class='row'>
+    <div class='col-lg-3 col-md-6 col-sm-3 col-xs-12' style='background-color:red;'>
+        {{ object.user }}
+    </div>
+    <div class='col-md-6' >
+        {{ object.user }}
+    </div>
+    <div class='col-xs-12' style='background-color:green;'>
+        {{ object.user }}
+    </div>
+    <div class='col-xs-12' style='background-color:blue;'>
+        {{ object.user }}
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class='row'>
+
+
+      <div class='col-sm-1' style='background-color:red;'>
+        {{ object.user }}
+    </div>
+    <div class='col-sm-1' style='background-color:yellow;'>
+        {{ object.user }}
+    </div>
+    <div class='col-sm-1' style='background-color:green;'>
+        {{ object.user }}
+    </div>
+
+    <div class='col-sm-1' style='background-color:blue;'>
+        {{ object.user }}
+    </div>
+      <div class='col-sm-1' style='background-color:red;'>
+        {{ object.user }}
+    </div>
+    <div class='col-sm-1' style='background-color:yellow;'>
+        {{ object.user }}
+    </div>
+    <div class='col-sm-1' style='background-color:green;'>
+        {{ object.user }}
+    </div>
+
+    <div class='col-sm-1' style='background-color:blue;'>
+
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+
+/*
+	Big Picture by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+/* Loader */
+
+	body {
+		&:before,
+		&:after {
+			display: none !important;
+		}
+	}
+
+/* Gallery */
+
+	.gallery {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		article {
+			float: left;
+		}
+	}
+
+/* Main */
+
+	.main {
+		&.fullscreen {
+			min-height: 0;
+		}
+
+		&.style1 {
+			> .content {
+				margin: 0 auto;
+			}
+		}
+	}
+
+/* Poptrox */
+
+	.poptrox-popup {
+		.loader {
+			display: none !important;
+		}
+	}

@@ -1,0 +1,545 @@
+body{
+	color:blue;
+}
+
+/* Main */
+
+	.main {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		position: relative;
+		margin: 0;
+		overflow-x: hidden;
+	}
+
+		.main > .content {
+			width: 45em;
+			max-width: calc(100% - 4em);
+			margin: 0 auto;
+		}
+
+			.main > .content > :last-child {
+				margin-bottom: 0;
+			}
+
+		.main.fullscreen {
+			min-height: 100%;
+		}
+
+		.main.style1 {
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			text-align: center;
+			padding: 3em 0 3em 0;
+		}
+
+			.main.style1 h2 {
+				font-size: 4.25em;
+				line-height: 1em;
+			}
+
+			.main.style1 > .content {
+				-moz-transition: opacity 1s ease;
+				-webkit-transition: opacity 1s ease;
+				-ms-transition: opacity 1s ease;
+				transition: opacity 1s ease;
+				-moz-transform: translateZ(0);
+				-webkit-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				transform: translateZ(0);
+				opacity: 1.0;
+				margin: 0;
+			}
+
+			.main.style1.inactive > .content {
+				opacity: 0;
+			}
+
+		.main.style2 {
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			padding: 3em 0 3em 0;
+			overflow: hidden;
+		}
+
+			.main.style2 > .content {
+				-moz-transition: -moz-transform 1s ease;
+				-webkit-transition: -webkit-transform 1s ease;
+				-ms-transition: -ms-transform 1s ease;
+				transition: transform 1s ease;
+				-moz-transform: translateZ(0);
+				-webkit-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				transform: translateZ(0);
+				position: relative;
+				width: 35%;
+				margin: 0;
+			}
+
+			.main.style2.left {
+				-moz-justify-content: -moz-flex-start;
+				-webkit-justify-content: -webkit-flex-start;
+				-ms-justify-content: -ms-flex-start;
+				justify-content: flex-start;
+			}
+
+			.main.style2.right {
+				-moz-justify-content: -moz-flex-end;
+				-webkit-justify-content: -webkit-flex-end;
+				-ms-justify-content: -ms-flex-end;
+				justify-content: flex-end;
+			}
+
+			.main.style2.inactive.left > .content {
+				-moz-transform: translateX(-100%);
+				-webkit-transform: translateX(-100%);
+				-ms-transform: translateX(-100%);
+				transform: translateX(-100%);
+			}
+
+			.main.style2.inactive.right > .content {
+				-moz-transform: translateX(100%);
+				-webkit-transform: translateX(100%);
+				-ms-transform: translateX(100%);
+				transform: translateX(100%);
+			}
+
+		.main.style3 {
+			text-align: center;
+			padding: 6em 0 6em 0;
+		}
+
+			.main.style3 .content > header {
+				margin-bottom: 2em;
+			}
+
+			.main.style3.primary {
+				background: #ffffff;
+			}
+
+			.main.style3.secondary {
+				background: #f5f6f7;
+			}
+
+		.main.dark {
+			color: #ffffff;
+		}
+
+			.main.dark a {
+				color: inherit;
+			}
+
+			.main.dark .nickbutton.style2 {
+				border-color: black;
+			}
+
+				.main.dark .nickbutton.style2:hover {
+					background-color: rgba(255, 255, 255, 0.125);
+				}
+
+				.main.dark .nickbutton.style2:active {
+					background-color: rgba(255, 255, 255, 0.25);
+				}
+
+				.main.dark .nickbutton.style2.down {
+					background-image: url("images/dark-arrow.svg");
+				}
+
+		body.is-touch .main {
+			background-attachment: scroll !important;
+		}
+
+		@media screen and (max-width: 1920px) {
+
+			.main.style2 .content {
+				width: 40%;
+			}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			.main.style2 .content {
+				width: 50%;
+			}
+
+		}
+
+		@media screen and (max-width: 1000px) {
+
+			.main.style2 .content {
+				width: 60%;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.main.fullscreen {
+				height: auto !important;
+			}
+
+			.main.style1 {
+				padding: 4em 15px 4em 15px;
+			}
+
+				.main.style1 h2 {
+					font-size: 3em;
+				}
+
+			.main.style2 {
+				padding: 6em 15px 6em 15px;
+			}
+
+				.main.style2:before, .main.style2:after {
+					display: none !important;
+				}
+
+				.main.style2 .nickbutton.anchored {
+					display: none;
+				}
+
+				.main.style2 .content {
+					width: 100%;
+					max-width: 100%;
+					text-align: center;
+					-moz-transform: none;
+					-webkit-transform: none;
+					-ms-transform: none;
+					transform: none;
+				}
+
+			.main.style3 {
+				text-align: center;
+				padding: 3em 10px 3em 10px;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.main > .content {
+				max-width: calc(100% - 1.5em);
+			}
+
+		}
+
+		/* Icon */
+
+			.icon {
+				text-decoration: none;
+			}
+
+				.icon:before {
+					display: inline-block;
+					font-family: FontAwesome;
+					font-size: 1.25em;
+					text-decoration: none;
+					font-style: normal;
+					font-weight: normal;
+					line-height: 1;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+				}
+
+				.icon > .label {
+					display: none;
+				}
+
+
+		/* Button */
+
+			input[type="button2"],
+			input[type="submit2"],
+			input[type="reset2"],
+			.nickbutton,
+			button {
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				-ms-appearance: none;
+				appearance: none;
+				-moz-transition: background-color 0.2s ease-in-out;
+				-webkit-transition: background-color 0.2s ease-in-out;
+				-ms-transition: background-color 0.2s ease-in-out;
+				transition: background-color 0.2s ease-in-out;
+				/*background-color: #98c593;*/
+				background-color: #06719b;
+				border: 0;
+				border-radius: 3.5em;
+				color: #ffffff;
+				cursor: pointer;
+				display: inline-block;
+				height: 3em;
+				line-height: 4em;
+				outline: 0;
+				padding: 0 2em 0 2em;
+				position: relative;
+				font-size: 20px;
+				text-align: center;
+				text-decoration: none;
+			}
+
+				input[type="button2"].down,
+				input[type="submit2"].down,
+				input[type="reset2"].down,
+				.nickbutton.down,
+				button.down {
+					width: 5em;
+					height: 5em;
+					line-height: 1em;
+					padding: 0;
+					background-image: url("images/dark-arrow.svg");
+					background-position: center center;
+					background-repeat: no-repeat;
+					text-indent: -10em;
+					overflow: hidden;
+				}
+
+					input[type="button2"].down.anchored,
+					input[type="submit2"].down.anchored,
+					input[type="reset2"].down.anchored,
+					.nickbutton.down.anchored,
+					button.down.anchored {
+						bottom: 0;
+						border-bottom: 0;
+						border-radius: 3em 3em 0 0;
+						height: 4.5em;
+						margin-left: -2.5em;
+					}
+
+				input[type="button2"].anchored,
+				input[type="submit2"].anchored,
+				input[type="reset2"].anchored,
+				.nickbutton.anchored,
+				button.anchored {
+					position: absolute;
+					left: 50%;
+				}
+
+				input[type="button2"]:hover,
+				input[type="submit2"]:hover,
+				input[type="reset2"]:hover,
+				.nickbutton:hover,
+				button:hover {
+					background-color: #a8cea4;
+					background-color: grey;
+				}
+
+				input[type="button2"]:active,
+				input[type="submit2"]:active,
+				input[type="reset2"]:active,
+				.nickbutton:active,
+				button:active {
+					background-color: #88bc82;
+				}
+
+				input[type="button2"].style2,
+				input[type="submit2"].style2,
+				input[type="reset2"].style2,
+				.nickbutton.style2,
+				button.style2 {
+					background-color: transparent;
+					border: solid 2px #e5e6e7;
+					color: inherit;
+				}
+
+					input[type="button2"].style2:hover,
+					input[type="submit2"].style2:hover,
+					input[type="reset2"].style2:hover,
+					.nickbutton.style2:hover,
+					button.style2:hover {
+						background-color: rgba(229, 230, 231, 0.25);
+					}
+
+					input[type="button2"].style2:active,
+					input[type="submit2"].style2:active,
+					input[type="reset2"].style2:active,
+					.nickbutton.style2:active,
+					button.style2:active {
+						background-color: rgba(229, 230, 231, 0.375);
+					}
+
+					input[type="button2"].style2.down,
+					input[type="submit2"].style2.down,
+					input[type="reset2"].style2.down,
+					.nickbutton.style2.down,
+					button.style2.down {
+						background-image: url("images/arrow.svg");
+					}
+
+
+
+					/* Footer */
+
+						#footer {
+							margin: 10px;
+							position: relative;
+							height: 5em;
+							line-height: 5em;
+							margin: 0;
+							background: #39454a;
+							/*background: #000;*/
+							color: rgba(185, 186, 187, 0.5);
+							overflow: hidden;
+						}
+
+							#footer a {
+								color: inherit;
+							}
+
+								#footer a:hover {
+									/*color: #b9babb;*/
+									color:#0080FF;
+									background-color: 	#ACD6FF;
+								}
+
+								#footer ul.nickaction li {
+									font-size: 30px;
+									margin-left: 20px;
+								}
+
+								#footer ul.nickaction2 li {
+									font-size: 20px;
+									margin-right: 50px;
+								}
+
+		/* Intro */
+
+			#intro {
+				background: url("images/overlay.png"), url("../../images/tenwater.jpg");
+				background-size: 256px 256px, cover;
+				background-attachment: fixed, fixed;
+				background-position: top left, bottom center;
+				background-repeat: repeat, no-repeat;
+
+			}
+		#intro header{
+			/*background-color: black;*/
+		background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+			padding: 1.5em 1em 1.5em 1em;
+			border-radius:10px;
+			box-shadow:3px 3px 60px #000;
+
+		}
+		#intro h2{
+			font-size: 300%;
+		}
+		#intro p{
+			padding: 10px;
+			margin: 30px;
+			font-size: 150%;
+			color: #14a876;
+			background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+		 background-blend-mode: multiply;
+		}
+
+		/* One */
+
+			#one {
+				background: url("images/overlay.png"), url("../../images/one.jpg");
+				background-size: 256px 256px, cover;
+				background-attachment: fixed, fixed;
+				background-position: top left, center center;
+			}
+			#one h1 {
+				font-style: italic;
+				font-weight: bold;
+				color: #000;
+				margin-right: 50px;
+				font-size: 50px;
+			}
+
+			#one p {
+				margin-right: 50px;
+				font-size: 25px;
+			}
+
+		/* Two */
+
+			#two {
+				background: url("images/overlay.png"), url("../../images/two.jpg");
+				background-size: 256px 256px, cover;
+				background-attachment: fixed, fixed;
+				background-position: top left, center center;
+			}
+
+			#two h1 {
+				font-style: italic;
+				font-weight: bold;
+				color: #000;
+				margin-left: 100px;
+				font-size: 50px;
+			}
+
+			#two p {
+				margin-left:100px;
+				font-size: 25px;
+			}
+			#work{
+				background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+				margin: 0;
+			}
+
+		/* Contact */
+
+			#contact {
+				background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+				overflow: hidden;
+				padding-bottom: 0;
+			}
+
+
+				#contact .box {
+					-moz-transition: -moz-transform 1s ease;
+					-webkit-transition: -webkit-transform 1s ease;
+					-ms-transition: -ms-transform 1s ease;
+					transition: transform 1s ease;
+					-moz-transform: translateY(0);
+					-webkit-transform: translateY(0);
+					-ms-transform: translateY(0);
+					transform: translateY(0);
+					position: relative;
+				}
+
+				#contact.inactive .box {
+					-moz-transform: translateY(100%);
+					-webkit-transform: translateY(100%);
+					-ms-transform: translateY(100%);
+					transform: translateY(100%);
+				}
+
+				#contact h1 {
+					font-style: italic;
+					font-weight: bold;
+					color: #000;
+					font-size: 50px;
+				}
+
+				#contact p {
+
+					font-weight: bold;
+					color: #000;
+					font-size: 20px;
+				}
+
+				@media screen and (max-width: 736px) {
+
+					#contact .box {
+						padding-bottom: 2em;
+					}
+
+				}

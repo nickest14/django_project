@@ -1,0 +1,19 @@
+
+{% load crispy_forms_tags %}
+
+<!--<style>
+textarea.form-control{
+    height:150px;
+  }
+</style>
+-->
+
+<form class='form {% if form_class %}{{ form_class }}{% endif %}' method='POST' action="{% if action_url %}{{ action_url }}{% endif %}" style="padding-top:20px;" enctype='multipart/form-data'>
+   {% csrf_token %}
+    {{ form|crispy }}
+    <input class='btn btn-primary' type="submit" value="{{ btn_title }}" />
+    {% if form_class %}
+      <a class = 'pull-right'style='color:#205527; padding:10px;' href="{% url 'tweet:create' %}"> --> Add tweet with image </a>
+    {% endif %}
+
+</form>

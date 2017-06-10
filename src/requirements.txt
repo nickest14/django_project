@@ -1,0 +1,8 @@
+Pillow==4.1.1
+Django==1.10.3
+django-crispy-forms==1.6.1
+djangorestframework==3.5.4
+whitenoise==3.3.0
+django-toolbelt
+boto==2.47.0
+django-storages==1.5.2
