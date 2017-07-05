@@ -55,6 +55,7 @@ def upload_location(instance, filename):
     print(instance.id)
     print(instance.user)
     return "%s/%s" %(instance.user, filename)
+    # return "/images/%s/%s" %(instance.user, filename) #use amazon storage
 
 class Tweet(models.Model):
     parent      = models.ForeignKey("self", blank=True, null=True)

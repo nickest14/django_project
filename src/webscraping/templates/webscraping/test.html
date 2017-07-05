@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block begin %}
+
+<style>
+  .border {
+    padding: 5px;
+    border-style: groove;
+    border-color: #d3d6d7;
+    padding: 10px;
+    margin: 10px;
+  }
+  .customer{
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+
+  }
+</style>
+
+
+<div class="container" style="background-color: white">
+
+ <form class="form-inline  navbar-right customer" method='GET' action=''>
+   <div class="form-group mx-sm-3">
+     <input class="form-control" type='text' name='q' placeholder='Search video' value='{{ request.GET.q }}'/>
+   </div>
+   <input style="margin: auto;" class="btn btn-default" type='submit' value='Search'/>
+ </form>
+
+<br>
+{%  if  q %}
+  <h3>搜尋結果 ↓↓↓</h3><br>
+{% else %}
+  <h3>熱門影片 ↓↓↓</h3><br>
+{% endif %}
+
+{% for list in obj %}
+<div class="card border">
+  <div class="card-block">
+    <h3> {{ list.title }} </h3><hr>
+  </div>
+
+<div class = "card-block">
+  <a href="https://www.youtube.com/{{ list.link }}"><img class="card-img-top"
+                                    src= {{ list.imagelink }}
+                                    alt="Card image cap" width="196" height="110"></a>
+  <p class="card-text">
+    <button type="submit" class="btn btn-primary btn-lg pull-right customer" onclick="javascript:location.href='https://www.youtube.com/{{ list.link }}'" aria-hidden="true"></i>&nbsp;Link
+    </button>
+    <p class="text-muted"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ list.time }} </p>
+    <!-- <p class="text-muted">{{ list.views }}</p> -->
+  </p>
+
+</div>
+<br><br>
+</div>
+{% endfor %}
+{% if all_page %}
+{{ all_page }}
+
+</div>
+{% endif%}
+ {% endblock begin %}

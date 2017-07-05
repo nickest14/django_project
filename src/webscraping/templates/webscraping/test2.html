@@ -1,0 +1,132 @@
+{% extends "base.html" %} {% block begin %}
+{% load mycustom %}
+<style>
+  .border {
+    padding: 5px;
+    border-style: groove;
+    border-color: #d3d6d7;
+    padding: 10px;
+    margin: 10px;
+  }
+  .customer{
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+  .customer_link{
+    margin-right: 50px;
+  }
+
+</style>
+
+
+<div class="container" style="background-color: white">
+
+ <form class="form-inline  navbar-right customer" method='GET' action=''>
+   <div class="form-group mx-sm-3">
+     <input class="form-control" type='text' name='q' placeholder='Search video' value='{{ request.GET.q }}'/>
+   </div>
+   <input style="margin: auto;" class="btn btn-default" type='submit' value='Search'/>
+ </form>
+<br>
+
+
+{%  if  q %}
+  <h3>搜尋結果 {{ q }} &nbsp;&nbsp;↓↓↓</h3><br>
+{% else %}
+  <h3>熱門影片 &nbsp;&nbsp;↓↓↓</h3><br>
+{% endif %}
+
+<div class='row '>
+
+{% for list in obj %}
+<div class = "col-md-6 col-xs-12">
+<div class="card border">
+  <div class="card-block">
+    <h3> {{ list.title }} </h3><hr>
+  </div>
+
+<div class = "card-block">
+  <a href="https://www.youtube.com/{{ list.link }}"><img class="card-img-top"
+                                    src= {{ list.imagelink }}
+                                    alt="Card image cap" width="196" height="110"></a>
+  <p class="card-text">
+    <button type="submit" class="btn btn-primary btn-lg pull-right customer_link" onclick="javascript:location.href='https://www.youtube.com/{{ list.link }}'" aria-hidden="true"></i>&nbsp;Link
+    </button>
+    <p class="text-muted"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ list.time }} </p>
+    <!-- <p class="text-muted">{{ list.views }}</p> -->
+  </p>
+
+</div>
+<br><br>
+</div>
+</div>
+
+{% cycle "" "<div class='col-sm-12'><hr></div></div><div class='row'>" %}
+{% endfor %}
+</div>
+
+
+{% if all_page  %}
+  {% if current_page %}
+  <center>
+      <nav aria-label="...">
+          <ul class="pagination">
+            {% if current_page > '1' %}
+            <li class="page-item">
+                {% for key, value in all_page %}
+                  {% ifequal forloop.counter	previous %}
+                  <a class="page-link"
+                    <a class="page-link" href="{{value}}&current_page={{key}}" aria-label="Last">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Last</span>
+                  </a>
+                  {% endifequal %}
+                {% endfor %}
+              </li>
+            {% endif%}
+              <li class="page-item active">
+                  <a class="page-link" href="#">{{ current_page }}<span class="sr-only">(current)</span></a>
+              </li>
+
+            {% if current_page < '7' %}
+              <li class="page-item">
+                {% for key, value in all_page %}
+                  {% ifequal forloop.counter	after %}
+                    <a class="page-link" href="{{value}}&current_page={{key}}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                  </a>
+                  {% endifequal %}
+                {% endfor %}
+              </li>
+            {% endif%}
+          </ul>
+      </nav>
+  </center>
+
+  {% else %}
+  <center>
+      <nav aria-label="...">
+          <ul class="pagination">
+              <li class="page-item active">
+                  <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
+              </li>
+              {% for key, value in all_page|slice:":6" %}
+                  <li class="page-item"><a class="page-link" href="{{value}}&current_page={{key}}">{{key}}</a>
+              {% endfor %}
+              <li class="page-item">
+                {% for key, value in all_page|slice:":1" %}
+                  <a class="page-link" href="{{value}}&current_page=2" aria-label="Next">
+                {% endfor %}
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </center>
+  {% endif%}
+{% endif%}
+</div>
+ {% endblock begin %}

@@ -1,0 +1,14 @@
+python template tag 一些操作筆記
+
+{% for athlete in athlete_list reversed %}
+...
+{% endfor %}
+{% for %}标签可以嵌套：
+{% for country in countries %}
+    <h1>{{ country.name }}</h1>  
+    <ul>
+    {% for city in country.city_list %}
+        <li>{{ city }}</li>
+    {% endfor %}
+    </ul>
+{% endfor %}
