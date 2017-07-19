@@ -1,10 +1,20 @@
 # django_project
 
-###### 我將此專案運行在heroku平台上
-###### 網址為 https://nickwebapplication.herokuapp.com/
+##### 我將此專案運行在heroku平台上
+##### 網址為 https://nickwebapplication.herokuapp.com/
 <hr>
 
-使用者註冊後便可進入類似twitter的應用程式, 可追蹤與按讚朋友的貼文,
-也可上傳帶有圖片的留言, 此專案中圖片會上傳至 AWS 的 S3 端空間中
+目前有2個小服務
+1. 類似 Twitter 的應用程式
+
+使用者註冊後可以發文、留言、點擊愛心 並追蹤好友的貼文, 
+要發貼文時也可以選擇上傳圖片, 此專案中圖片會上傳至 AWS 的 S3 空間中。
+
+    
+<hr>
+2. Youtube web scraping
+
+Youtube 的爬蟲實作 (web scraping),  點選到主頁面會抓取熱門影片, 
+輸入搜尋的關鍵字會自動顯示 Youtube上搜尋到的結果。
 
 希望大家使用愉快！
